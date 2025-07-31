@@ -5,13 +5,6 @@ import Booking from "../model/booking.js";
 export const createEvents = async(req, res) => {
 
     try {
-
-        if (!req.user) {
-      req.user = {
-        _id: '64cfe2f4a1b2c3d4e5f67890', 
-        role: 'admin'
-      };
-    }
     const event = new Event({ ...req.body, createdBy: req.user._id });
     await event.save();
    res.status(201).json(event);
