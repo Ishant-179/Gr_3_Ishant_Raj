@@ -15,11 +15,15 @@ const PORT = process.env.PORT || 4000;
 connectDB();
 
 app.use(express.json());
+
+app.use("/api/user", userRoutes)
+
+
 app.use(mockAuth);
 
 app.use("/api/event", eventRoutes)
 app.use("/api/booking", bookingRoutes)
-app.use("/api/user", userRoutes)
+
 
 
 app.listen(PORT, () => {
